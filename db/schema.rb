@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190612182208) do
+ActiveRecord::Schema.define(version: 20190612182326) do
 
   create_table "folders", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "user_id"
+  end
+
+  create_table "pieces", force: :cascade do |t|
+    t.string  "title"
+    t.string  "from_work"
+    t.integer "year"
+    t.string  "composer"
+    t.string  "lyricist"
+    t.string  "genre"
+    t.string  "language"
+    t.string  "translation"
   end
 
   create_table "users", force: :cascade do |t|
