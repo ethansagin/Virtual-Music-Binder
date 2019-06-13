@@ -25,7 +25,12 @@ class FoldersController<ApplicationController
   end
   
   get '/folders/:id' do
-    
+    if logged_in?
+      @folder = Folder.find_by(id: params[:id])
+      erb :'folders/show'
+    else
+      redirect to 'sessions/login'
+    end
   end
   
   get '/folders/:id/edit' do

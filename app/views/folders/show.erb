@@ -1,0 +1,7 @@
+<h1><%=current_user.username%>'s Binder</h1><br>
+
+<h2><%@folder.name%></h2><br>
+
+<%@folder.pieces.each do |piece|%>
+  <p>- <a href='/pieces/<%piece.id%>'><%=piece.title%></a></p>
+<%end%>
