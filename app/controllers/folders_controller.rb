@@ -34,11 +34,23 @@ class FoldersController<ApplicationController
   end
   
   get '/folders/:id/edit' do
-    
+    if logged_in?
+      @folder = Folder.find_by(id: params[:id])
+      erb :'folders/edit'
+    else
+      redirect to 'sessions/login'
+    end
   end
   
   patch '/folders/:id/edit' do
+    folder = Folder.find_by(id: params[:id])
     
+    if !params[:name].empty?
+      folder.update(name: params[:name])
+      redirect to '/folders'
+    else
+      redirect to "/folders/#{params[:id]}/edit"
+    end
   end
   
   delete '/folders/:id/delete' do
