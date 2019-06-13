@@ -7,9 +7,12 @@ class FoldersController<ApplicationController
   end
   
   get '/folders/new' do
-    @user = current_user
-    
-    erb :'folders/new'
+    if logged_in?
+      @user = current_user
+      erb :'folders/new'
+    else
+      redirect to '/sessions/login'
+    end
   end
   
   post '/folders' do
