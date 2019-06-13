@@ -8,13 +8,21 @@ class SessionsController<ApplicationController
     end
   end
   
-  # post '/sessions/login' do
+  post '/sessions/login' do
+    user = User.find_by(username: params[:username])
     
-  # end
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect to '/folders'
+    else
+      redirect to '/users/signup'
+    end
+  end
   
-  # get '/sessions/logout' do
-    
-  # end
+  get '/sessions/logout' do
+    session.clear
+    redirect to '/users/signup'
+  end
   
   # post '/sessions/logout' do
     
