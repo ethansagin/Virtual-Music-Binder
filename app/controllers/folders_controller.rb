@@ -62,7 +62,9 @@ class FoldersController<ApplicationController
   end
   
   delete '/folders/:id/delete' do
-    
+    @folder = Folder.find_by(id: params[:id])
+    @folder.destroy
+    redirect to '/folders'
   end
   
 end
