@@ -21,11 +21,7 @@ class SessionsController<ApplicationController
   
   get '/sessions/logout' do
     session.clear
-    redirect to '/users/signup'
+    redirect to '/'
   end
-  
-  # post '/sessions/logout' do
-    
-  # end
   
 end
