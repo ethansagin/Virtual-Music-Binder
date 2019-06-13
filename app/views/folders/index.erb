@@ -2,7 +2,12 @@
 
 <h2>Folders:</h2><br>
 
-<%Folder.all.each do ||%>
+<%Folder.all.each do |folder|%>
+<%binding.pry%>
+  <%if folder.user_id == @user.id%>
+    <p><%=folder.name%></p>
+  <%end%>
+<%end%>
 
 <form action='folders/new' method='get'>
   <input type='submit' value='Create Folder'>

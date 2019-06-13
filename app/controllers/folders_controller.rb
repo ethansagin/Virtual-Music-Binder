@@ -16,7 +16,12 @@ class FoldersController<ApplicationController
   end
   
   post '/folders' do
-    
+    if !params[:name].empty?
+      folder = Folder.create(name: params[:name], user_id: current_user.id)
+      redirect to '/folders'
+    else
+      redirect to '/folders/new'
+    end
   end
   
   get '/folders/:id' do
