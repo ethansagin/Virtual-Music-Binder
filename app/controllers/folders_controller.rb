@@ -7,7 +7,9 @@ class FoldersController<ApplicationController
   end
   
   get '/folders/new' do
+    @user = current_user
     
+    erb :'folders/new'
   end
   
   post '/folders' do
