@@ -11,6 +11,11 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     erb :welcome
+    if logged_in?
+      redirect to '/folders'
+    else
+      erb :homepage
+    end
   end
   
   helpers do
