@@ -2,14 +2,16 @@
 
 <h2><%=@folder.name%></h2><br>
 
-<%@folder.pieces.each do |piece|%>
-  <p>- <a href='/pieces/<%=piece.id%>'>- <%=piece.title%></a></p>
-<%end%><br>
+<ul>
+  <%@folder.pieces.each do |piece|%>
+    <li>- <a href='/pieces/<%=piece.id%>'><%=piece.title%></a></li>
+  <%end%><br>
+</ul>
 
-<form action='/folders/<%=@folder.id%>/pieces/new' method='get'>
-  <input type='submit' value='Add Piece'>
+<form action='/folders/<%=@folder.id%>/folders_pieces' method='get'>
+  <input type='submit' value='Add / Remove Piece'>
 </form>  
-
+<br>
 <p><form action='/folders/<%=@folder.id%>/edit' method='get'>
   <input type='submit' value='Edit Folder'>
 </form>

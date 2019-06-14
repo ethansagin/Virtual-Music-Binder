@@ -1,0 +1,3 @@
+class FoldersPiecesController<ApplicationController
+  
+end
