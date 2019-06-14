@@ -13,7 +13,7 @@ class PiecesController<ApplicationController
   end
   
   post '/pieces' do
-    if !params[:title].empty?
+    if !!params[:title] && !!params[:composer]
       piece = Piece.new(params)
       piece.user_id = current_user.id
       piece.save

@@ -1,20 +1,27 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
 
 <h2>"<%=@piece.title%>" by <%=@piece.composer%></h2><br>
-<%if @piece.from_work%>
+
+<%if !@piece.from_work.empty?%>
   <h3>from <%=@piece.from_work.upcase%></h3><br>
 <%end%>
-<p>First performed in <%=@piece.year%></p>
-<p>Genre: <%=@piece.genre%></p><br>
 
-<%if @piece.language%>
+<%if !!@piece.year%>
+  <p>First performed in <%=@piece.year%></p>
+<%end%>
+
+<%if !@piece.genre.empty?%>
+  <p>Genre: <%=@piece.genre%></p>
+<%end%>
+
+<%if !@piece.language.empty?%>
   <p>Written in <%=@piece.language%></p>
 <%end%>
-<%if @piece.lyricist%>
+<%if !@piece.lyricist.empty?%>
   <p>With lyrics written by <%=@piece.lyricist%></p>
 <%end%>
 <br>
-<%if @piece.translation%>
+<%if !@piece.translation.empty?%>
   <p>Translation:<br>
     <%=@piece.translation%>
   </p>
