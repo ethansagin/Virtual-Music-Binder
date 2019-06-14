@@ -64,7 +64,8 @@ class FoldersController<ApplicationController
     redirect_if_not_logged_in
 
     @folder = Folder.find_by(params[:id])
-    @pieces = Piece.all
+    @pieces = current_user.pieces.all
+    binding.pry
     erb :'folders/pieces/edit'
   end
   
