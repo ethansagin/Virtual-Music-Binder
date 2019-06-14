@@ -4,7 +4,7 @@
 
 <%Folder.all.each do |folder|%>
   <%if folder.user_id == @user.id%>
-    <p>- <a href='/folders/<%folder.id%>'><%=folder.name%></a></p>
+    <a href="/folders/<%=folder.id%>">- <%=folder.name%></a><br>
   <%end%>
 <%end%>
 

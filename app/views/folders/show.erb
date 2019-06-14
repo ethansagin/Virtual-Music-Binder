@@ -2,9 +2,9 @@
 
 <h2><%=@folder.name%></h2><br>
 
-<!--<%@folder.pieces.each do |piece|%>-->
-<!--  <p>- <a href='/pieces/<%piece.id%>'><%=piece.title%></a></p>-->
-<!--<%end%><br>-->
+<%@folder.pieces.each do |piece|%>
+  <p>- <a href='/pieces/<%=piece.id%>'>- <%=piece.title%></a></p>
+<%end%><br>
 
 <form action='/folders/<%=@folder.id%>/edit' method='get'>
   <input type='submit' value='Edit Folder'>
