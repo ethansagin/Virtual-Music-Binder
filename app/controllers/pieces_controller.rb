@@ -14,7 +14,9 @@ class PiecesController<ApplicationController
   
   post '/pieces' do
     if !params[:title].empty?
-      piece = Piece.create(params)
+      piece = Piece.new(params)
+      piece.user_id = current_user.id
+      piece.save
       redirect to '/pieces'
     else
       redirect to '/pieces/new'
@@ -46,6 +48,7 @@ class PiecesController<ApplicationController
   patch '/pieces/:id' do
     @piece = Piece.find_by(id: params[:id])
     
+    @piece.title = params[:title]
     @piece.composer = params[:composer]
     @piece.from_work = params[:from_work]   
     @piece.year = params[:year]  
