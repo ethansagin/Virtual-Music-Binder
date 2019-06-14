@@ -2,12 +2,12 @@ class FoldersController<ApplicationController
   
   get '/folders' do
     @user = current_user
-    
+
     erb :'folders/index'
   end
   
   get '/folders/new' do
-    redirect_if_logged_in
+    redirect_if_not_logged_in
     
     @user = current_user
     erb :'folders/new'
@@ -23,8 +23,8 @@ class FoldersController<ApplicationController
   end
   
   get '/folders/:id' do
-    redirect_if_logged_in
-    
+    redirect_if_not_logged_in
+
     @folder = Folder.find_by(id: params[:id])
     if @folder.user_id == current_user.id
       erb :'folders/show'
@@ -34,7 +34,7 @@ class FoldersController<ApplicationController
   end
   
   get '/folders/:id/edit' do
-    redirect_if_logged_in
+    redirect_if_not_logged_in
 
     @folder = Folder.find_by(id: params[:id])
     if @folder.user_id == current_user.id
@@ -46,7 +46,6 @@ class FoldersController<ApplicationController
   
   patch '/folders/:id' do
     folder = Folder.find_by(id: params[:id])
-    
     if !params[:name].empty?
       folder.update(name: params[:name])
       redirect to '/folders'
@@ -60,5 +59,13 @@ class FoldersController<ApplicationController
     @folder.destroy
     redirect to '/folders'
   end
+  
+  get 'folders/'
+  
+  # get 'folders/:id/pieces/new' do
+  # binding.pry
+  # @folder = 
+  #   erb :'pieces/new'
+  # end
   
 end

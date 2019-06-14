@@ -6,6 +6,10 @@
   <p>- <a href='/pieces/<%=piece.id%>'>- <%=piece.title%></a></p>
 <%end%><br>
 
+<form action='/folders/<%=@folder.id%>/pieces/new' method='get'>
+  <input type='submit' value='Add Piece'>
+</form>  
+
 <p><form action='/folders/<%=@folder.id%>/edit' method='get'>
   <input type='submit' value='Edit Folder'>
 </form>

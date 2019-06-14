@@ -1,10 +1,10 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
 <h2>Edit Your Folder</h2><br>
 
-<form action='/folders/:id' method='post'>
+<form action='/folders/<%=@folder.id%>' method='post'>
   <input id="hidden" type="hidden" name="_method" value="patch">
   <p>Folder Name: <input type='text' name='name' value='<%=@folder.name%>'></p>
-  <input type='submit' value='Edit Folder'>
+  <input type='submit' value='Apply Edits'>
 </form>
 <br>
 <form action='/folders' method='get'>

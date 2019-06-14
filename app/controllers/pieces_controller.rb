@@ -6,7 +6,7 @@ class PiecesController<ApplicationController
   end
   
   get '/pieces/new' do
-    redirect_if_logged_in
+    redirect_if_not_logged_in
 
     @user = current_user
     erb :'pieces/new'
@@ -22,7 +22,7 @@ class PiecesController<ApplicationController
   end
   
   get '/pieces/:id' do
-    redirect_if_logged_in
+    redirect_if_not_logged_in
 
     @piece = Piece.find_by(id: params[:id])
     if @piece
@@ -33,7 +33,7 @@ class PiecesController<ApplicationController
   end
   
   get '/pieces/:id/edit' do
-    redirect_if_logged_in
+    redirect_if_not_logged_in
 
     @piece = Piece.find_by(id: params[:id])
     if @piece
@@ -44,14 +44,18 @@ class PiecesController<ApplicationController
   end
   
   patch '/pieces/:id' do
-    piece = Piece.find_by(id: params[:id])
+    @piece = Piece.find_by(id: params[:id])
     
-    if !params.empty?
-      piece.update(params)
-      redirect to '/pieces'
-    else
-      redirect to "/pieces/#{params[:id]}/edit"
-    end
+    @piece.composer = params[:composer]
+    @piece.from_work = params[:from_work]   
+    @piece.year = params[:year]  
+    @piece.lyricist = params[:lyricist]
+    @piece.genre = params[:genre]
+    @piece.language = params[:language] 
+    @piece.translation = params[:translation]
+    @piece.save
+    
+    redirect to '/pieces'
   end
   
   delete '/pieces/:id/delete' do

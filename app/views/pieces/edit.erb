@@ -1,7 +1,7 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
 <h2>Edit Your Piece</h2><br>
 
-<form action='/pieces/:id' method='post'>
+<form action='/pieces/<%=@piece.id%>' method='post'>
   <input id="hidden" type="hidden" name="_method" value="patch">
   <p>Title of Piece: <input type='text' name='title' value='<%=@piece.title%>'></p><br>
   <p>Title of Larger Work (optional): <input type='text' name='from_work' value='<%=@piece.from_work%>'></p><br>
@@ -11,7 +11,7 @@
   <p>Genre: <input type='text' name='genre' value='<%=@piece.genre%>'></p><br>
   <p>Language (optional): <input type='text' name='language' value='<%=@piece.language%>'></p><br>
   <p>Translation (optional): <input type='text' name='translation'value='<%=@piece.translation%>'></p><br>
-  <input type='submit' value='Edit Piece'>
+  <input type='submit' value='Apply Edits'>
 </form>
 <br>
 <form action='/folders' method='get'>
