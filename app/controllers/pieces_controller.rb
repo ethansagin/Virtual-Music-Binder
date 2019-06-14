@@ -22,12 +22,12 @@ class PiecesController<ApplicationController
   end
   
   get '/pieces/:id' do
-    redirect_if_logged_in
+    # redirect_if_logged_in
 
-    @piece = Piece.find_by(id: params[:id])
-    erb :'pieces/show'
-    else
-    redirect to '/pieces'
+    # @piece = Piece.find_by(id: params[:id])
+    # erb :'pieces/show'
+    # else
+    # redirect to '/pieces'
 
   end
   
