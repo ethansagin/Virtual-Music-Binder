@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190612182924) do
+ActiveRecord::Schema.define(version: 20190614203856) do
 
   create_table "folders", force: :cascade do |t|
     t.string  "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20190612182924) do
     t.string  "genre"
     t.string  "language"
     t.string  "translation"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
