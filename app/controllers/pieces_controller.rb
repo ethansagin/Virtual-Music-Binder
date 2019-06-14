@@ -13,7 +13,7 @@ class PiecesController<ApplicationController
   end
   
   post '/pieces' do
-    if !!params[:title] && !!params[:composer]
+    if !params[:title].empty? && !params[:composer].empty?
       piece = Piece.new(params)
       piece.user_id = current_user.id
       piece.save
@@ -47,18 +47,20 @@ class PiecesController<ApplicationController
   
   patch '/pieces/:id' do
     @piece = Piece.find_by(id: params[:id])
-    
-    @piece.title = params[:title]
-    @piece.composer = params[:composer]
-    @piece.from_work = params[:from_work]   
-    @piece.year = params[:year]  
-    @piece.lyricist = params[:lyricist]
-    @piece.genre = params[:genre]
-    @piece.language = params[:language] 
-    @piece.translation = params[:translation]
-    @piece.save
-    
-    redirect to '/pieces'
+    if params[:title].empty? || params[:composer].empty?
+      redirect to "/pieces/#{@piece.id}/edit"
+    else
+      @piece.title = params[:title]
+      @piece.composer = params[:composer]
+      @piece.from_work = params[:from_work]   
+      @piece.year = params[:year]  
+      @piece.lyricist = params[:lyricist]
+      @piece.genre = params[:genre]
+      @piece.language = params[:language] 
+      @piece.translation = params[:translation]
+      @piece.save
+      redirect to '/pieces'
+    end
   end
   
   delete '/pieces/:id/delete' do

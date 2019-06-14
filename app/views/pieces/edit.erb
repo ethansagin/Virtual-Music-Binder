@@ -3,14 +3,15 @@
 
 <form action='/pieces/<%=@piece.id%>' method='post'>
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <p>Title of Piece: <input type='text' name='title' value='<%=@piece.title%>'></p><br>
-  <p>Title of Larger Work (optional): <input type='text' name='from_work' value='<%=@piece.from_work%>'></p><br>
-  <p>Premiere / Copyright Year: <input type='text' name='year' value='<%=@piece.year%>'></p><br>
+  <p>Title of Piece (required): <input type='text' name='title' value='<%=@piece.title%>'></p><br>
   <p>Composer: <input type='text' name='composer' value='<%=@piece.composer%>'><br>
-  <p>Librettist / Lyricist (optional): <input type='text' name='lyricist' value='<%=@piece.lyricist%>'></p><br>
+  <br>
+  <p>Title of Larger Work: <input type='text' name='from_work' value='<%=@piece.from_work%>'></p><br>
+  <p>Premiere / Copyright Year: <input type='text' name='year' value='<%=@piece.year%>'></p><br>
+  <p>Librettist / Lyricist: <input type='text' name='lyricist' value='<%=@piece.lyricist%>'></p><br>
   <p>Genre: <input type='text' name='genre' value='<%=@piece.genre%>'></p><br>
-  <p>Language (optional): <input type='text' name='language' value='<%=@piece.language%>'></p><br>
-  <p>Translation (optional): <input type='text' name='translation'value='<%=@piece.translation%>'></p><br>
+  <p>Language: <input type='text' name='language' value='<%=@piece.language%>'></p><br>
+  <p>Translation: <input type='text' name='translation'value='<%=@piece.translation%>'></p><br>
   <input type='submit' value='Apply Edits'>
 </form>
 <br>
