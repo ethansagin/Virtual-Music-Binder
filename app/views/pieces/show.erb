@@ -1,6 +1,6 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
 
-<h2><%@piece.title%> by <%=@piece.composer%></h2><br>
+<h2><%=@piece.title%> by <%=@piece.composer%></h2><br>
 <%if @piece.from_work%>
   <h3>from <%=@piece.from_work%></h3><br>
 <%end%>
@@ -16,6 +16,6 @@
 <br>
 <%if @piece.translation%>
   <p>Translation:<br>
-    <%@piece.translation%>
+    <%=@piece.translation%>
   </p>
 <%end%>
