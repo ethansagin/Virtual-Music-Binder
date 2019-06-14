@@ -1,1 +1,23 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
+<h2>Create a New Piece</h2><br>
+
+<form action='/pieces' method='post'>
+  
+  <p>Title of Piece: <input type='text' name='title'></p><br>
+  <p>Title of Larger Work (optional): <input type='text' name='from_work'></p><br>
+  <p>Premiere / Copyright Year: <input type='text' name='year'></p><br>
+  <p>Title of Piece: <input type='text' name='title'></p><br>
+  <p>Composer: <input type='text' name='composer'><br>
+  <p>Librettist / Lyricist (optional): <input type='text' name='title'></p><br>
+  <p>Title of Piece: <input type='text' name='title'></p><br>
+  <p>Genre: <input type='text' name='genre'></p><br>
+  <p>Language (optional): <input type='text' name='language'></p><br>
+  <p>Translation (optional): <input type='text' name='title'></p><br>
+
+  <input type='submit' value='Create Piece'>
+</form>
+
+<br>
+<form action='/pieces' method='get'>
+  <input type='submit' value='Return to Binder'>
+</form>
