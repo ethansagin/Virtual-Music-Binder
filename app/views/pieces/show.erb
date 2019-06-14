@@ -19,3 +19,16 @@
     <%=@piece.translation%>
   </p>
 <%end%>
+
+<p><form action='/pieces/<%=@piece.id%>/edit' method='get'>
+  <input type='submit' value='Edit Piece'>
+</form>
+OR
+<form action='/pieces/<%=@piece.id%>/delete' method='post'>
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type='submit' value='Delete Piece'>
+</form></p><br>
+
+<form action='/folders' method='get'>
+  <input type='submit' value='Return to Binder'>
+</form>
