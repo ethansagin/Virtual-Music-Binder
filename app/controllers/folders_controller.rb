@@ -60,12 +60,10 @@ class FoldersController<ApplicationController
     redirect to '/folders'
   end
   
-  get 'folders/'
-  
-  # get 'folders/:id/pieces/new' do
-  # binding.pry
-  # @folder = 
-  #   erb :'pieces/new'
-  # end
+  # # get 'folders/:id/pieces/new' do
+  # # binding.pry
+  # # @folder = 
+  # #   erb :'pieces/new'
+  # # end
   
 end

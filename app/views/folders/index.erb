@@ -2,14 +2,21 @@
 
 <h2>Your Folders</h2><br>
 
-<%@user.folders.each do |folder|%>
-  <a href="/folders/<%=folder.id%>">- <%=folder.name%></a><br>
-<%end%>
-<br>
-<form action='folders/new' method='get'>
-  <input type='submit' value='Create Folder'>
-</form><br>
+<ul style="type = circle">
+  <%@user.folders.each do |folder|%>
+    <li>- <a href="/folders/<%=folder.id%>"><%=folder.name%></a></li><br>
+  <%end%>
+</ul><br>
 
+<form action='folders/new' method='get'>
+  <input type='submit' value='Create New Folder'>
+</form><br>
+<p>To view a list of the pieces in your binder:
+  <form action='pieces/index' method='get'>
+    <input type='submit' value='List Pieces'>
+  </form>
+</p>
+<br>
 <form action='sessions/logout' method='get'>
   <input type='submit' value='Log Out'>
 </form>
