@@ -1,1 +1,17 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
+
+<h2>Pieces:</h2><br>
+
+<%Piece.all.each do |piece|%>
+  <%if piece.user_id == @user.id%>
+    <a href="/pieces/<%=piece.id%>">- <%=piece.name%></a><br>
+  <%end%>
+<%end%>
+
+<form action='pieces/new' method='get'>
+  <input type='submit' value='Create Piece'>
+</form><br>
+
+<form action='sessions/logout' method='get'>
+  <input type='submit' value='Log Out'>
+</form>

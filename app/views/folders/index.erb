@@ -2,10 +2,8 @@
 
 <h2>Folders:</h2><br>
 
-<%Folder.all.each do |folder|%>
-  <%if folder.user_id == @user.id%>
-    <a href="/folders/<%=folder.id%>">- <%=folder.name%></a><br>
-  <%end%>
+<%@user.folders.each do |folder|%>
+  <a href="/folders/<%=folder.id%>">- <%=folder.name%></a><br>
 <%end%>
 
 <form action='folders/new' method='get'>
