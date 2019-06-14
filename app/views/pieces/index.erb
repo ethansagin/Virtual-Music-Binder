@@ -1,6 +1,6 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
 
-<h2>Pieces:</h2><br>
+<h2>Your Pieces:</h2><br>
 
 <%Piece.all.each do |piece|%>
   <a href="/pieces/<%=piece.id%>">- <%=piece.title%></a><br>

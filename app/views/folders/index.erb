@@ -1,11 +1,11 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
 
-<h2>Folders:</h2><br>
+<h2>Your Folders</h2><br>
 
 <%@user.folders.each do |folder|%>
   <a href="/folders/<%=folder.id%>">- <%=folder.name%></a><br>
 <%end%>
-
+<br>
 <form action='folders/new' method='get'>
   <input type='submit' value='Create Folder'>
 </form><br>
