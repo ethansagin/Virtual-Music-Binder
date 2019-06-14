@@ -43,7 +43,7 @@ class PiecesController<ApplicationController
     end
   end
   
-  patch '/pieces/:id/edit' do
+  patch '/pieces/:id' do
     piece = Piece.find_by(id: params[:id])
     
     if !params.empty?

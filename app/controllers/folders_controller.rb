@@ -44,7 +44,7 @@ class FoldersController<ApplicationController
     end
   end
   
-  patch '/folders/:id/edit' do
+  patch '/folders/:id' do
     folder = Folder.find_by(id: params[:id])
     
     if !params[:name].empty?
