@@ -33,14 +33,30 @@ class PiecesController<ApplicationController
   end
   
   get '/pieces/:id/edit' do
-    
+    redirect_if_logged_in
+
+    @piece = Piece.find_by(id: params[:id])
+    if @piece
+      erb :'pieces/edit'
+    else
+      redirect to '/pieces'
+    end
   end
   
   patch '/pieces/:id/edit' do
+    piece = Piece.find_by(id: params[:id])
     
+    if !params.empty?
+      piece.update(params)
+      redirect to '/pieces'
+    else
+      redirect to "/pieces/#{params[:id]}/edit"
+    end
   end
   
   delete '/pieces/:id/delete' do
-    
+    @piece = Piece.find_by(id: params[:id])
+    @piece.destroy
+    redirect to '/pieces'
   end
 end
