@@ -28,6 +28,12 @@ class ApplicationController < Sinatra::Base
       end
       @current_user
     end
+    
+    def redirect_if_logged_in
+      if !logged_in?
+        redirect to '/sessions/login'
+      end
+    end
   end
 
 end

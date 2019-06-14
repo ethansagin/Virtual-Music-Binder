@@ -1,11 +1,9 @@
 class SessionsController<ApplicationController
   
   get '/sessions/login' do 
-    if logged_in?
-      redirect to '/folders'
-    else
-      erb :'sessions/login'
-    end
+    redirect_if_logged_in
+    
+    redirect to '/folders'
   end
   
   post '/sessions/login' do

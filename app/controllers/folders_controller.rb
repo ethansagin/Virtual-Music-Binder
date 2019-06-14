@@ -7,12 +7,10 @@ class FoldersController<ApplicationController
   end
   
   get '/folders/new' do
-    if logged_in?
-      @user = current_user
-      erb :'folders/new'
-    else
-      redirect to '/sessions/login'
-    end
+    redirect_if_logged_in
+    
+    @user = current_user
+    erb :'folders/new'
   end
   
   post '/folders' do
@@ -25,28 +23,24 @@ class FoldersController<ApplicationController
   end
   
   get '/folders/:id' do
-    if logged_in?
-      @folder = Folder.find_by(id: params[:id])
-      if @folder.user_id == current_user.id
-        erb :'folders/show'
-      else
-        redirect to '/folders'
-      end
+    redirect_if_logged_in
+    
+    @folder = Folder.find_by(id: params[:id])
+    if @folder.user_id == current_user.id
+      erb :'folders/show'
     else
-      redirect to 'sessions/login'
+      redirect to '/folders'
     end
   end
   
   get '/folders/:id/edit' do
-    if logged_in?
-      @folder = Folder.find_by(id: params[:id])
-      if @folder.user_id == current_user.id
-        erb :'folders/edit'
-      else
-        redirect to '/folders'
-      end
+    redirect_if_logged_in
+
+    @folder = Folder.find_by(id: params[:id])
+    if @folder.user_id == current_user.id
+      erb :'folders/edit'
     else
-      redirect to 'sessions/login'
+      redirect to '/folders'
     end
   end
   

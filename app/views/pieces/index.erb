@@ -2,8 +2,8 @@
 
 <h2>Pieces:</h2><br>
 
-<%@user.pieces.each do |piece|%>
-  <a href="/pieces/<%=piece.id%>">- <%=piece.name%></a><br>
+<%Piece.all.each do |piece|%>
+  <a href="/pieces/<%=piece.id%>">- <%=piece.title%></a><br>
 <%end%>
 
 <form action='pieces/new' method='get'>
