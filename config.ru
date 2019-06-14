@@ -9,5 +9,4 @@ use UsersController
 use SessionsController
 use FoldersController
 use PiecesController
-use FoldersPiecesController
 run ApplicationController

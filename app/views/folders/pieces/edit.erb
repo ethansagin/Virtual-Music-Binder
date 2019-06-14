@@ -1,0 +1,15 @@
+<h1><%=current_user.username%>'s Binder</h1><br>
+
+<h2>Add/Remove Pieces from <%@folder%> Folder</h2><br>
+
+<form action='/folder/<%@folder.id%>/pieces' method='post'>
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+<label>Selectd pieces will be found in this folder:</label>
+<%current_user.pieces.each do |piece|%>
+  <input >
+</form>
+
+  <%@pets.each do |pet|%>
+    <input type="checkbox" name="owner[pet_ids][]" id="<%= pet.id%>" value="<%=pet.id%>" <%='checked' if @owner.pets.include?(pet) %>><%=pet.name%></input>
+  <%end%>

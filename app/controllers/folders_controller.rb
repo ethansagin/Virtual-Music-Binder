@@ -60,11 +60,12 @@ class FoldersController<ApplicationController
     redirect to '/folders'
   end
   
-  get '/folders/:id/folders_pieces' do
+  get '/folders/:id/pieces/edit' do
     redirect_if_not_logged_in
 
     @folder = Folder.find_by(params[:id])
-    erb :'folders_pieces/show'
+    @pieces = Piece.all
+    erb :'folders/pieces/edit'
   end
   
 end
