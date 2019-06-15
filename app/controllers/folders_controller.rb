@@ -65,7 +65,6 @@ class FoldersController<ApplicationController
 
     @folder = Folder.find_by(params[:id])
     @pieces = current_user.pieces.all
-    binding.pry
     erb :'folders/pieces/edit'
   end
   

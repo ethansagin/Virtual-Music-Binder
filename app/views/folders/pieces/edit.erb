@@ -5,11 +5,14 @@
 <form action='/folder/<%@folder.id%>/pieces' method='post'>
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-<label>Selected pieces will be found in this folder:</label>
-<%current_user.pieces.each do |piece|%>
-  <input >
+  <label>Selected pieces will be found in this folder:</label><br>
+  
+  <ul>
+    <%@pieces.each do |piece|%>
+      <li><input type="checkbox" name="folder[piece.id][]" id="<%=piece.id%>" value="<%=piece.id%>" <%="checked" if @folder.pieces.include?(piece)%>>"<%=piece.title%>" by <%=piece.composer%></input></li>
+    <%end%>
+  </ul><br>
+  
+  <input type="submit" value="Apply">
+  
 </form>
-
-  <%@pets.each do |pet|%>
-    <input type="checkbox" name="owner[pet_ids][]" id="<%= pet.id%>" value="<%=pet.id%>" <%='checked' if @owner.pets.include?(pet) %>><%=pet.name%></input>
-  <%end%>
