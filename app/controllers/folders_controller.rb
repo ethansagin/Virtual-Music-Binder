@@ -45,6 +45,7 @@ class FoldersController<ApplicationController
   end
   
   patch '/folders/:id' do
+    binding.pry
     folder = Folder.find_by(id: params[:id])
     if !params[:name].empty?
       folder.update(name: params[:name])
@@ -66,6 +67,10 @@ class FoldersController<ApplicationController
     @folder = Folder.find_by(params[:id])
     @pieces = current_user.pieces.all
     erb :'folders/pieces/edit'
+  end
+  
+  patch '/folders/:id/pieces' do
+    binding.pry
   end
   
 end

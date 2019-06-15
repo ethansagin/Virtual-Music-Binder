@@ -2,7 +2,7 @@
 
 <h2>Add/Remove Pieces from <%@folder%> Folder</h2><br>
 
-<form action='/folder/<%@folder.id%>/pieces' method='post'>
+<form action='/folders_pieces/<%@folder.id%>' method='post'>
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label>Selected pieces will be found in this folder:</label><br>
