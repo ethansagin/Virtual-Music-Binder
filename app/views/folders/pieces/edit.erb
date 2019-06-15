@@ -1,15 +1,15 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
 
-<h2>Add/Remove Pieces from <%@folder%> Folder</h2><br>
+<h2>Add/Remove Pieces from <%=@folder%> Folder</h2><br>
 
-<form action='/folders_pieces/<%@folder.id%>' method='post'>
+<form action='/folders/<%=@folder.id%>' method='post'>
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label>Selected pieces will be found in this folder:</label><br>
   
   <ul>
     <%@pieces.each do |piece|%>
-      <li><input type="checkbox" name="folder[piece.id][]" id="<%=piece.id%>" value="<%=piece.id%>" <%="checked" if @folder.pieces.include?(piece)%>>"<%=piece.title%>" by <%=piece.composer%></input></li>
+      <li><input type="checkbox" name="folder[piece_id][]" id="<%=piece.id%>" value="<%=piece.id%>" <%="checked" if @folder.pieces.include?(piece)%>>"<%=piece.title%>" by <%=piece.composer%></input></li>
     <%end%>
   </ul><br>
   
