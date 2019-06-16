@@ -1,19 +1,23 @@
 <h1><%=current_user.username%>'s Binder</h1><br>
 
-<h2><%=@folder.name%></h2><br>
+<h2><%=@folder.name%> Folder</h2><br>
 
-<ul>
-  <%@folder.pieces.each do |piece|%>
-    <li>- <a href='/pieces/<%=piece.id%>'><%=piece.title%></a></li>
-  <%end%><br>
-</ul>
+<%if @folder.pieces.empty?%>
+  <p> This folder does not currently contain any pieces!</p>
+<%else%>
+  <ul>
+    <%@folder.pieces.each do |piece|%>
+      <li>- <a href='/pieces/<%=piece.id%>'><%=piece.title%></a></li>
+    <%end%><br>
+  </ul>
+<%end%>
 
 <form action='/folders/<%=@folder.id%>/pieces/edit' method='get'>
-  <input type='submit' value='Add / Remove Piece'>
+  <input type='submit' value='Add / Remove Piece from Folder'>
 </form>  
 <br>
 <p><form action='/folders/<%=@folder.id%>/edit' method='get'>
-  <input type='submit' value='Edit Folder'>
+  <input type='submit' value='Edit Folder Name'>
 </form>
 OR
 <form action='/folders/<%=@folder.id%>/delete' method='post'>

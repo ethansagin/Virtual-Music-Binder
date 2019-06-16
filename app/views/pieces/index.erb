@@ -2,13 +2,17 @@
 
 <h2>Your Pieces:</h2><br>
 
-<ul>
-  <%Piece.all.each do |piece|%>
-    <%if piece.user_id == current_user.id%>
-      <li>- <a href="/pieces/<%=piece.id%>"><%=piece.title%></a></li><br>
+<%if current_user.pieces.empty?%>
+  <p> This binder does not currently contain any pieces!</p>
+<%else%>
+  <ul>
+    <%Piece.all.each do |piece|%>
+      <%if piece.user_id == current_user.id%>
+        <li>- <a href="/pieces/<%=piece.id%>"><%=piece.title%></a></li><br>
+      <%end%>
     <%end%>
-  <%end%>
-</ul>
+  </ul>
+<%end%>
 
 <form action='pieces/new' method='get'>
   <input type='submit' value='Create New Piece'>
@@ -17,7 +21,3 @@
 <form action='/folders' method='get'>
   <input type='submit' value='Return to Binder'>
 </form><br>
-
-<form action='sessions/logout' method='get'>
-  <input type='submit' value='Log Out'>
-</form>

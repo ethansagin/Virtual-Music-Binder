@@ -2,15 +2,20 @@
 
 <h2>Your Folders</h2><br>
 
-<ul>
-  <%@user.folders.each do |folder|%>
-    <li>- <a href="/folders/<%=folder.id%>"><%=folder.name%></a></li><br>
-  <%end%>
-</ul><br>
+<%if @user.folders.empty?%>
+  <p> This binder does not currently contain any folders!</p>
+<%else%>
+  <ul>
+    <%@user.folders.each do |folder|%>
+      <li>- <a href="/folders/<%=folder.id%>"><%=folder.name%></a></li><br>
+    <%end%>
+  </ul><br>
+<%end%>
 
 <form action='folders/new' method='get'>
   <input type='submit' value='Create New Folder'>
 </form><br>
+<br>
 <p>To view a list of all your virtual pieces:
   <form action='pieces/index' method='get'>
     <input type='submit' value='List Pieces'>
