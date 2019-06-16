@@ -45,13 +45,24 @@ class FoldersController<ApplicationController
   end
   
   patch '/folders/:id' do
-    binding.pry
     folder = Folder.find_by(id: params[:id])
-    if !params[:name].empty?
-      folder.update(name: params[:name])
-      redirect to '/folders'
+
+    if !!params[:name]
+      if !params[:name].empty?
+        folder.update(name: params[:name])
+        redirect to '/folders'
+      else
+        redirect to "/folders/#{params[:id]}/edit"
+      end
+    elsif defined?(params[:folder][:piece_id])
+      folder.pieces.clear
+      params[:folder][:piece_id].each do |p_id|
+        folder.pieces << Piece.find_by(id: p_id)
+      end
+      redirect to "/folders/#{params[:id]}"
     else
-      redirect to "/folders/#{params[:id]}/edit"
+      folder.pieces.clear
+      redirect to "/folders/#{params[:id]}"
     end
   end
   
@@ -63,11 +74,10 @@ class FoldersController<ApplicationController
   
   get '/folders/:id/pieces/edit' do
     redirect_if_not_logged_in
-#binding.pry
+
     @folder = Folder.find_by(id: params[:id])
     @pieces = current_user.pieces.all
     erb :'folders/pieces/edit'
   end
-  
   
 end
