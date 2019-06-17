@@ -27,6 +27,11 @@
   </p>
 <%end%>
 
+<%if @piece.folders.empty?%>
+  <p>This piece is of  not currently in anyo be found in the following folders:
+  
+</p>
+
 <p><form action='/pieces/<%=@piece.id%>/edit' method='get'>
   <input type='submit' value='Edit Piece'>
 </form>
