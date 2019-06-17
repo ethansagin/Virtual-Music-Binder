@@ -28,9 +28,14 @@
 <%end%>
 
 <%if @piece.folders.empty?%>
-  <p>This piece is of  not currently in anyo be found in the following folders:
-  
-</p>
+  <p>This piece is not currently in any of your folders</p>
+<%else%>
+  <p>This piece is currently in the following folders:
+  <%@piece.folders.each do |f|%>
+    <%=f.name%>
+  <%end%>
+  </p>
+<%end%>
 
 <p><form action='/pieces/<%=@piece.id%>/edit' method='get'>
   <input type='submit' value='Edit Piece'>
