@@ -2,19 +2,17 @@
 
 <h2>Your Pieces:</h2><br>
 
-<%if current_user.pieces.empty?%>
+<%if @pieces.empty?%>
   <p> This binder does not currently contain any pieces!</p>
 <%else%>
   <ul>
-    <%Piece.all.each do |piece|%>
-      <%if piece.user_id == current_user.id%>
-        <li>- <a href="/pieces/<%=piece.id%>"><%=piece.title%></a></li><br>
-      <%end%>
+    <%@pieces.each do |piece|%>
+      <li>- <a href="/pieces/<%=piece.id%>"><%=piece.title%></a></li><br>
     <%end%>
   </ul>
 <%end%>
 
-<form action='pieces/new' method='get'>
+<form action='/pieces/new' method='get'>
   <input type='submit' value='Create New Piece'>
 </form><br>
 

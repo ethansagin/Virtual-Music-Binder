@@ -1,6 +1,6 @@
 class UsersController<ApplicationController
   
-  get '/users/signup' do
+  get '/signup' do
     if logged_in?
       redirect to '/folders'
     else
@@ -8,10 +8,10 @@ class UsersController<ApplicationController
     end
   end
   
-  post '/users/signup' do
+  post '/signup' do
     params.each do |k, v|
       if v.empty?
-        redirect to '/users/signup'
+        redirect to '/signup'
       end
     end
     user = User.create(username: params[:username], email: params[:email], password: params[:password])

@@ -4,8 +4,9 @@ Welcome to the Virtual Music Folder, my second portfolio project for the Flatiro
 The project is a web version of a music binder, geared towards classical musicians, which can store sheet music and information about a piece in various folders. This app could be used in an audition, rehearsal, or performance environment. To use, follow the onscreen prompts to create an account and start filling your binder.
 
 INSTALLATION
-
-gem install Virtual-Music-Binder(???)
+1) In your terminal enter "git clone git@github.com:ethansagin/Virtual-Music-Binder.git"
+2) Cd into the directory and "bundle install"
+3) "Shotgun" and paste the redirect link into a new window
 
 CONTRIBUTING
 

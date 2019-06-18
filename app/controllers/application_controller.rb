@@ -31,8 +31,12 @@ class ApplicationController < Sinatra::Base
     
     def redirect_if_not_logged_in
       if !logged_in?
-        redirect to '/sessions/login'
+        redirect to '/login'
       end
+    end
+    
+    def authorized_to_edit?(obj)
+      current_user.id == obj.user_id
     end
   end
 
