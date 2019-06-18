@@ -2,11 +2,11 @@
 
 <h2>Your Folders</h2><br>
 
-<%if @user.folders.empty?%>
+<%if current_user.folders.empty?%>
   <p> This binder does not currently contain any folders!</p>
 <%else%>
   <ul>
-    <%@user.folders.each do |folder|%>
+    <%current_user.folders.each do |folder|%>
       <li>- <a href="/folders/<%=folder.id%>"><%=folder.name%></a></li><br>
     <%end%>
   </ul><br>

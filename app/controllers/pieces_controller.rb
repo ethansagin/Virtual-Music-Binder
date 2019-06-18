@@ -8,7 +8,6 @@ class PiecesController<ApplicationController
   get '/pieces/new' do
     redirect_if_not_logged_in
 
-    @user = current_user
     erb :'pieces/new'
   end
   

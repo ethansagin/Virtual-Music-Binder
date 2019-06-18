@@ -9,7 +9,6 @@ class FoldersController<ApplicationController
   get '/folders/new' do
     redirect_if_not_logged_in
     
-    @user = current_user
     erb :'folders/new'
   end
   
@@ -90,5 +89,5 @@ class FoldersController<ApplicationController
     @pieces = current_user.pieces.all
     erb :'folders/pieces/edit'
   end
-  
+
 end
