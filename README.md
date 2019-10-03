@@ -1,12 +1,19 @@
 VIRTUAL MUSIC FOLDER README
 Welcome to the Virtual Music Folder, my second portfolio project for the Flatiron School Online Web Dev Program! This program is meant to demonstrate what I've learned about using ORMs, ActiveRecord, and Sinatra.
 
-The project is a web version of a music binder, geared towards classical musicians, which can store sheet music and information about a piece in various folders. This app could be used in an audition, rehearsal, or performance environment. To use, follow the onscreen prompts to create an account and start filling your binder.
+The project is a web version of a music binder, geared towards classical musicians, which can store sheet music and information about a piece in various folders. This app could be used in an audition, rehearsal, or performance environment. To get started, follow the onscreen prompts to create an account and start filling your binder.
 
 INSTALLATION
-1) In your terminal enter "git clone git@github.com:ethansagin/Virtual-Music-Binder.git"
-2) Cd into the directory and "bundle install"
-3) "Shotgun" and paste the redirect link into a new window
+
+1) Clone the Github repository by entering the following command in your terminal: "git clone git@github.com:ethansagin/Virtual-Music-Binder.git"
+
+2) Change directories to the cloned directory: "cd Virtual-Music-Binder"
+
+3) Install the required gems: "bundle install"
+
+4) Enter command "shotgun" in terminal to get a redirect link
+
+5) Navigate to redirect link in your browser window to use the app
 
 CONTRIBUTING
 
